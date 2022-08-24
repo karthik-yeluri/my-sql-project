@@ -1,0 +1,375 @@
+create database library_managementsystem;
+use library_managementsystem;
+
+/*creating tables*/
+
+CREATE TABLE Mec_Eng_library (
+    book_id INT(200) AUTO_INCREMENT,
+    branch VARCHAR(1000) NOT NULL,
+    book_name VARCHAR(1000) NOT NULL,
+    number_ofbooks INT NOT NULL,
+    CONSTRAINT PRIMARY KEY (book_id)
+);
+
+CREATE TABLE civil_Eng_library (
+    book_id INT AUTO_INCREMENT,
+    branch VARCHAR(1000) NOT NULL,
+    book_name VARCHAR(1000) NOT NULL,
+    number_ofbooks INT NOT NULL,
+    CONSTRAINT PRIMARY KEY (book_id)
+);
+
+CREATE TABLE computer_Eng_library (
+    book_id int AUTO_INCREMENT,
+    branch VARCHAR(1000) NOT NULL,
+    book_name VARCHAR(1000) NOT NULL,
+    number_ofbooks INT NOT NULL,
+    CONSTRAINT PRIMARY KEY (book_id)
+);
+
+CREATE TABLE electrical_Eng_library (
+    book_id INT AUTO_INCREMENT,
+    branch VARCHAR(1000) NOT NULL,
+    book_name VARCHAR(1000) NOT NULL,
+    number_ofbooks INT NOT NULL,
+    CONSTRAINT PRIMARY KEY (book_id)
+);
+
+CREATE TABLE electronics_electrical_Eng_library (
+    book_id INT AUTO_INCREMENT,
+    branch VARCHAR(1000) NOT NULL,
+    book_name VARCHAR(1000) NOT NULL,
+    number_ofbooks INT NOT NULL,
+    CONSTRAINT PRIMARY KEY (book_id)
+);
+
+create table borrower_of_mec_branch(
+book_id int Not Null,
+branch_name varchar(100) Not Null,
+student_name varchar(100) Not Null,
+phone_number double,
+foreign key borrower_of_mec_branch(book_id)
+references Mec_Eng_library(book_id)
+);
+
+create table borrower_of_civil_branch(
+book_id int Not Null,
+branch_name varchar(100) Not Null,
+student_name varchar(100) Not Null,
+phone_number double,
+foreign key borrower_of_civil_branch(book_id)
+references civil_Eng_library(book_id)
+);
+
+create table borrower_of_computer_branch(
+book_id int Not Null,
+branch_name varchar(100) Not Null,
+student_name varchar(100) Not Null,
+phone_number double,
+foreign key borrower_of_computer_branch(book_id)
+references computer_Eng_library(book_id)
+);
+
+create table borrower_of_electrical_branch(
+book_id int Not Null,
+branch_name varchar(100) Not Null,
+student_name varchar(100) Not Null,
+phone_number double,
+foreign key borrower_of_electrical_branch(book_id)
+references electrical_Eng_library(book_id)
+);
+
+create table borrower_of_electronics_electrical_branch(
+book_id int Not Null,
+branch_name varchar(100) Not Null,
+student_name varchar(100) Not Null,
+phone_number double,
+foreign key borrower_of_electronics_electrical_branch(book_id)
+references electronics_electrical_Eng_library(book_id)
+);
+
+/*inserting values into tables*/
+
+insert into Mec_Eng_library  (book_id,branch,book_name,number_ofbooks)
+values
+(1,"Mechanical Engineering","Strenghth Of Materials",10),
+(2,"Mechanical Engineering","Fluidmechanics",12),
+(3,"Mechanical Engineering","Mathematics",15),
+(4,'Mechanical Engineering','Mathematics',15),
+(5,"Mechanical Engineering","Production Technology",8),
+(6,"Mechanical Engineering","Automobile Engineering",16),
+(7,"Mechanical Engineering","Heat tranfer",19),
+(8,"Mechanical Engineering","Dynamics Of Machinery",10),
+(9,"Mechanical Engineering","Refrigeration And AirConditioning",10),
+(10,"Mechanical Engineering","Physics",17),
+(11,"Mechanical Engineering","Mechanical Vibrations",14),
+(12,"Mechanical Engineering","Design Of Machine Elements",13),
+(13,"Mechanical Engineering","Chemistry",19),
+(14,"Mechanical Engineering","English",15),
+(15,"Mechanical Engineering","C programming",12),
+(16,"Mechanical Engineering","Design Of Machine Elements-2",3),
+(17,"Mechanical Engineering","Machine Drawing",5),
+(18,"Mechanical Engineering","Workshop Practice",8),
+(19,"Mechanical Engineering","Kinematic Analysis and Synthesis-1",9),
+(20,"Mechanical Engineering","Manufacturing Processes-1",17),
+(21,"Mechanical Engineering","Electrohydraulic Control Systems",15),
+(22,"Mechanical Engineering","Steam Power Plant-1",6),
+(23,"Mechanical Engineering","Electrohydraulic Control Systems",2),
+(24,"Mechanical Engineering","Applied Mechanics",18),
+(25,"Mechanical Engineering","Manufacturing Processes-2",56),
+(26,"Mechanical Engineering","Steam Power Plant-2",63),
+(27,"Mechanical Engineering","Kinematic Analysis and Synthesis-2",25),
+(28,"Mechanical Engineering","Mathematics-2",14),
+(30,"Mechanical Engineering","Mathematics-3",16);
+
+insert into  computer_Eng_library (book_id,branch,book_name,number_ofbooks)
+values
+(1,"Computer science","Mathematics",10),
+(2,"Computer science","Artificial Intelligence",10),
+(3,"Computer science","Machine Learning",10),
+(4,"Computer science","Cloud Computing",10),
+(5,"Computer science","Dev-Ops",10),
+(6,"Computer science","Design and Analysis of Algorithms",10),
+(7,"Computer science","Computer Architecture and Organisation",10),
+(8,"Computer science","Software Engineering",10),
+(9,"Computer science","Programming in Java",10),
+(10,"Computer science","Programming in Python",10),
+(11,"Computer science","Data Structure and Algorithms",10);
+
+ insert into civil_Eng_library (book_id,branch,book_name,number_ofbooks)
+values
+(1,"Civil Engineering","Foundation engineering",5),
+(2,"Civil Engineering","Strength Of Materials",10),
+(3,"Civil Engineering","Electronics",4),
+(4,"Civil Engineering","Mechanics",3),
+(5,"Civil Engineering","IT and CAD",5),
+(6,"Civil Engineering","Design of steel structures",46),
+(7,"Civil Engineering","Structural analysis",44),
+(8,"Civil Engineering","Programming and data structure",7),
+(9,"Civil Engineering","Design of steel structures",8),
+(10,"Civil Engineering"," Structural analysis",9);
+
+ insert into electrical_Eng_library (book_id,branch,book_name,number_ofbooks)
+ values
+(1,"Electrical Engineering","Power Engineering",12),
+(2,"Electrical Engineering","Electro-magnetism",6),
+(3,"Electrical Engineering","Control systems",8),
+(4,"Electrical Engineering","Electricity Technology and Machines",8),
+(5,"Electrical Engineering","Circuit Analysis, Electronics",11),
+(6,"Electrical Engineering","Electrical Engineering Material",23),
+(7,"Electrical Engineering","Transmission & Distribution",4),
+(8,"Electrical Engineering","Instrumentation",5),
+(9,"Electrical Engineering","Microprocessor interfacing.",10),
+(10,"Electrical Engineering","Thermodynamics",11);
+
+ insert into  electronics_electrical_Eng_library (book_id,branch,book_name,number_ofbooks)
+ values
+(1,"Electronics And Electrical Engineering","Electrical Engineering Materials-2",5), 
+(2,"Electronics And Electrical Engineering","Electrical Engineering Materials",5),
+(3,"Electronics And Electrical Engineering","Control Engineering – I",5),
+(4,"Electronics And Electrical Engineering","Power System – I",5),
+(5,"Electronics And Electrical Engineering","Analog Electronics-II",5),
+(6,"Electronics And Electrical Engineering","Analog Electronics-I",5),
+(7,"Electronics And Electrical Engineering","Circuits & Systems",5),
+(8,"Electronics And Electrical Engineering","Electromagnetic Field Theory",5),
+(9,"Electronics And Electrical Engineering","ElectroMechanical Energy Conversion – I",5),
+(10,"Electronics And Electrical Engineering","English Communication",5),
+(11,"Electronics And Electrical Engineering","Applied Mathematics II",5),
+(12,"Electronics And Electrical Engineering","Elements of Electrical Engineering",5),
+(13,"Electronics And Electrical Engineering","Applied Mathematics",5),
+(14,"Electronics And Electrical Engineering","Electrical Machines I",5),
+(15,"Electronics And Electrical Engineering","Electrical & Electronics Measurements",5),
+(16,"Electronics And Electrical Engineering","Communication and Computer Networks",5),
+(17,"Electronics And Electrical Engineering","Power Electronics",5),
+(18,"Electronics And Electrical Engineering","Transmission and Distribution",5),
+(19,"Electronics And Electrical Engineering","Electrical Power Generation",5),
+(20,"Electronics And Electrical Engineering","CASP",5);
+
+
+/*inserting into borrowers table*/
+
+insert into borrower_of_mec_branch(book_id,branch_name,student_name,phone_number)
+values
+(5,"Mechanical Engineering","karthik",8885151127),
+(7,"Mechanical Engineering","pavan",8885151127),
+(9,"Mechanical Engineering","kiran",8885151127),
+(11,"Mechanical Engineering","sai",8885151127),
+(6,"Mechanical Engineering","vasu",8885151127),
+(6,"Mechanical Engineering","malli",8885151127),
+(12,"Mechanical Engineering","hari",8885151127),
+(15,"Mechanical Engineering","venky",8885151127),
+(26,"Mechanical Engineering","srinu",8885151127),
+(19,"Mechanical Engineering","mahesh",8885151127);
+
+insert into borrower_of_civil_branch(book_id,branch_name,student_name,phone_number)
+values
+(6,"Civil Engineering","keerthana",9949910918),
+(4,"Civil Engineering","sindhu",9949910918),
+(7,"Civil Engineering","mubeena",9949910918),
+(1,"Civil Engineering","meghana",9949910918),
+(3,"Civil Engineering","nisar",9949910918),
+(5,"Civil Engineering","aliyah",9949910918),
+(5,"Civil Engineering","swati",9949910918),
+(9,"Civil Engineering","mahesh",9949910918),
+(10,"Civil Engineering","karthik",9949910918);
+
+insert into borrower_of_electrical_branch(book_id,branch_name,student_name,phone_number)
+values
+(1,"Electrical Engineering","nani",9441033852),
+(4,"Electrical Engineering","hari",9441033852),
+(6,"Electrical Engineering","pavan",9441033852),
+(9,"Electrical Engineering","jana",9441033852),
+(8,"Electrical Engineering","anji",9441033852),
+(8,"Electrical Engineering","suresh",9441033852),
+(4,"Electrical Engineering","vamsi",9441033852),
+(7,"Electrical Engineering","akshay",9441033852),
+(1,"Electrical Engineering","rajesh",9441033852);
+
+insert into borrower_of_electronics_electrical_branch(book_id,branch_name,student_name,phone_number)
+values
+(5,"Electronics And Electrical Engineering","naga sai",9014607354),
+(6,"Electronics And Electrical Engineering","malli",9014607354),
+(4,"Electronics And Electrical Engineering","sai",9014607354),
+(4,"Electronics And Electrical Engineering","kalyan",9014607354),
+(1,"Electronics And Electrical Engineering","joseph",9014607354),
+(2,"Electronics And Electrical Engineering","killer",9014607354),
+(9,"Electronics And Electrical Engineering","srinu",9014607354),
+(7,"Electronics And Electrical Engineering","trinadh",9014607354),
+(6,"Electronics And Electrical Engineering","madhavi",9014607354),
+(3,"Electronics And Electrical Engineering","aparna",9014607354),
+(7,"Electronics And Electrical Engineering","siri",9014607354);
+
+insert into borrower_of_computer_branch(book_id,branch_name,student_name,phone_number)
+values
+(1,"Computer science","vasavi",9293719721),
+(10,"Computer science","janu",9293719721),
+(9,"Computer science","keerthi",9293719721),
+(8,"Computer science","prasanna",9293719721),
+(7,"Computer science","sandhya",9293719721),
+(9,"Computer science","rani",9293719721),
+(5,"Computer science","raju",9293719721),
+(6,"Computer science","pallavi",9293719721),
+(4,"Computer science","himabindhu",9293719721),
+(3,"Computer science","mubeena shaik",9293719721);
+
+/*creating procedures for branchwise information */
+
+DELIMITER //
+
+create procedure studentinfo_from_mechanical()
+begin
+select * from borrower_of_mec_branch;
+end//
+
+DELIMITER ;
+---------------------------------------------------------------
+DELIMITER //
+
+create procedure studentinfo_from_computers()
+begin
+select * from borrower_of_computer_branch;
+end//
+
+DELIMITER ;
+---------------------------------------------------------------------
+DELIMITER //
+
+create procedure studentinfo_from_civil()
+begin
+select * from borrower_of_civil_branch;
+end//
+
+DELIMITER ;
+
+----------------------------------------------------------------------
+DELIMITER //
+
+create procedure studentinfo_from_electrical()
+begin
+select * from borrower_of_electrical_branch;
+end//
+
+DELIMITER ;
+-----------------------------------------------------------------------
+DELIMITER //
+
+create procedure studentinfo_from_electronics_electrical()
+begin
+select * from borrower_of_electronics_electrical_branch;
+end//
+
+DELIMITER ;
+
+/*creating procedures for borrowers information*/
+
+DELIMITER //
+
+CREATE PROCEDURE get_by_name_from_civil()
+BEGIN
+select civil_eng_library.book_id,civil_eng_library.book_name,borrower_of_civil_branch.student_name,borrower_of_civil_branch.phone_number
+from  civil_eng_library
+right join borrower_of_civil_branch
+on civil_eng_library. book_id=borrower_of_civil_branch.book_id;
+end//
+
+DELIMITER ;
+--------------------------------------------------------------------------
+DELIMITER //
+CREATE PROCEDURE get_by_name_from_computers()
+BEGIN
+select computer_eng_library.book_id,computer_eng_library.book_name,borrower_of_computer_branch.student_name,borrower_of_computer_branch.phone_number
+from  computer_eng_library
+right join borrower_of_computer_branch
+on computer_eng_library. book_id=borrower_of_computer_branch.book_id;
+end//
+
+DELIMITER ;
+--------------------------------------------------------------------------
+DELIMITER //
+
+CREATE PROCEDURE get_by_name_from_electrical()
+BEGIN
+select electrical_eng_library.book_id,electrical_eng_library.book_name,borrower_of_electrical_branch.student_name,borrower_of_electrical_branch.phone_number
+from  electrical_eng_library
+right join borrower_of_electrical_branch
+on electrical_eng_library. book_id=borrower_of_electrical_branch.book_id;
+end//
+
+DELIMITER ;
+--------------------------------------------------------------------------
+DELIMITER //
+
+CREATE PROCEDURE get_by_name_from_electronics_electrical()
+BEGIN
+select electronics_electrical_eng_library.book_id,electronics_electrical_eng_library.book_name,borrower_of_electronics_electrical_branch.student_name,borrower_of_electronics_electrical_branch.phone_number
+from  electronics_electrical_eng_library
+right join borrower_of_electronics_electrical_branch
+on electronics_electrical_eng_library. book_id=borrower_of_electronics_electrical_branch.book_id;
+end//
+
+DELIMITER ;
+------------------------------------------------------------------------------
+DELIMITER //
+
+CREATE PROCEDURE get_by_name_from_mechanical()
+BEGIN
+select mec_eng_library.book_id,mec_eng_library.book_name, borrower_of_mec_branch.book_id,borrower_of_mec_branch.student_name,borrower_of_mec_branch.phone_number
+from  mec_eng_library
+right join borrower_of_mec_branch
+on mec_eng_library. book_id=borrower_of_mec_branch.book_id;
+end//
+
+DELIMITER ;
+
+
+
+
+
+
+
+
+ 
+
+
+
+
